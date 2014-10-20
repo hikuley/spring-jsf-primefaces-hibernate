@@ -45,7 +45,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public Article getAtricleById(int id) {
-        return (Article) getSession().get(ArticleDAO.class, id);
+        return (Article) getSession().get(Article.class, new Integer(id));
     }
 
 }

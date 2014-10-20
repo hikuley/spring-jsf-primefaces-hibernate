@@ -30,24 +30,24 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     @Transactional
     public void updateArtcile(Article article) {
-
+        this.articleDAO.updateArtcile(article);
     }
 
     @Override
     @Transactional
     public List<Article> articleList() {
-        return null;
+        return this.articleDAO.articleList();
     }
 
     @Override
     @Transactional
     public void deleteArticle(Article article) {
-
+        this.articleDAO.deleteArticle(article);
     }
 
     @Override
     @Transactional
     public Article getAtricleById(int id) {
-        return null;
+        return articleDAO.getAtricleById(id);
     }
 }
