@@ -1,4 +1,4 @@
-package com.kodcu.entity;
+package com.ibrahimkuley.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
