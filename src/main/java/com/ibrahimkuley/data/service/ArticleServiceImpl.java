@@ -1,17 +1,13 @@
-package com.ibrahimkuley.service;
+package com.ibrahimkuley.data.service;
 
-import com.ibrahimkuley.dao.ArticleDAO;
-import com.ibrahimkuley.entity.Article;
+import com.ibrahimkuley.data.dao.ArticleDAO;
+import com.ibrahimkuley.data.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by hikuley on 20.10.2014.
- */
-@Service(value = "articleService")
+
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired //otomotik bir şekilde bean'a atamasını yap

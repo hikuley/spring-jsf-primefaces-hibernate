@@ -1,11 +1,9 @@
-package com.ibrahimkuley.entity;
+package com.ibrahimkuley.data.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * Created by hikuley on 19.10.2014.
- */
+
 @Entity
 public class Article implements Serializable {
 

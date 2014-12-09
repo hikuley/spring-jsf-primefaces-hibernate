@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-mvc-demo.iml" filepath="$PROJECT_DIR$/spring-mvc-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-jsf-hibernate-demo.iml" filepath="$PROJECT_DIR$/spring-jsf-hibernate-demo.iml" />
     </modules>
   </component>
 </project>
-

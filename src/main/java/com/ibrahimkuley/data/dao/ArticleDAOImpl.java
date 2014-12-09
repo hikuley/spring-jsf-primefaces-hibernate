@@ -1,6 +1,6 @@
-package com.ibrahimkuley.dao;
+package com.ibrahimkuley.data.dao;
 
-import com.ibrahimkuley.entity.Article;
+import com.ibrahimkuley.data.entity.Article;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by hikuley on 19.10.2014.
- */
 
 @Repository //bean
 public class ArticleDAOImpl implements ArticleDAO {

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:column>
+                <h:outputLabel>Yazar : </h:outputLabel> <h:inputText/>
+            </h:column>
+            <h:column>
+                <h:outputLabel>Kitab Adı : </h:outputLabel> <h:inputText/>
+            </h:column>
+            <h:column>
+                <h:outputLabel>Kategori : </h:outputLabel> <h:inputText/>
+            </h:column>
+            <h:column>
+                <h:outputLabel>İçerik : </h:outputLabel> <h:inputText/>
+            </h:column>
+            <h:column>
+                <h:outputLabel>İçerik : </h:outputLabel> <h:inputText/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="Kaydet"/>
+            </h:column>
+        </h:panelGrid>
+    </h:form>
+
+    <h:dataTable value="#{articleMB.articleList}" var="article">
+        <h:column>
+            <f:facet name="header">Author</f:facet>
+            #{article.author}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            #{article.title}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Content</f:facet>
+            #{article.content}
+        </h:column>
+    </h:dataTable>
+
+</f:view>
+
+</html>

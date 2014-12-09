@@ -12,13 +12,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd
        ">
 
-
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-    <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
-    <!--<property name="suffix" value=".jsp"/>-->
-    <!--</bean>-->
-
-
+    <!--auto-injected beanlarını otomotik olarak enjette etmek için kullanılır, @Autowired, @Required vb.-->
     <context:annotation-config/>
 
     <!-- Belirtilen packgeları annotationlar için tara-->
@@ -31,9 +25,9 @@
 
     <!-- Hibernate ihtiyacı olan datasource -->
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/spring_crud"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/primeFacesDb"/>
         <property name="username" value="root"/>
-        <property name="password" value="262626"/>
+        <property name="password" value=""/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
     </bean>
     <!-- Hibernate ihtiyacı olan datasource -->

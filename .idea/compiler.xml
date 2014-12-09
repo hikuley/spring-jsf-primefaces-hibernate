@@ -22,12 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="spring-mvc-demo" />
+        <module name="spring-jsf-hibernate-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-mvc-demo" target="1.6" />
+      <module name="spring-jsf-hibernate-demo" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
-

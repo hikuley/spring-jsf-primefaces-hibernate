@@ -1,21 +1,24 @@
 package test;
 
-import com.ibrahimkuley.service.ArticleService;
+import com.ibrahimkuley.data.entity.Article;
+import com.ibrahimkuley.data.service.ArticleService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Created by hikuley on 19.10.2014.
- */
 public class Test {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         ArticleService service = (ArticleService) context.getBean("articleService");
 
-        //service metodunu kullanarak her türlü dataya ulaşabiliriz
+        Article article=new Article();
+        article.setAuthor("fewfwe");
+        article.setCategory("fwefwe");
+        article.setContent("fewfwefew");
+        article.setTitle("fewfewfew");
 
-        System.out.println("Olay budur be kardeşim :)");
+        service.addArticle(article);
+
 
     }
 

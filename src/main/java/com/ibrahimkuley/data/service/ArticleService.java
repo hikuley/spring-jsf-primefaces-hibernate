@@ -1,12 +1,9 @@
-package com.ibrahimkuley.service;
+package com.ibrahimkuley.data.service;
 
-import com.ibrahimkuley.entity.Article;
+import com.ibrahimkuley.data.entity.Article;
 
 import java.util.List;
 
-/**
- * Created by hikuley on 20.10.2014.
- */
 public interface ArticleService {
 
     public void addArticle(Article article);
