@@ -9,22 +9,23 @@
     <h:form>
         <h:panelGrid columns="1">
             <h:column>
-                <h:outputLabel>Yazar : </h:outputLabel> <h:inputText/>
+                <h:outputLabel>Yazar : </h:outputLabel>
+                <h:inputText value="#{articleMB.author}"></h:inputText>
             </h:column>
             <h:column>
-                <h:outputLabel>Kitab Adı : </h:outputLabel> <h:inputText/>
+                <h:outputLabel>Kategori : </h:outputLabel>
+                <h:inputText value="#{articleMB.category}"></h:inputText>
             </h:column>
             <h:column>
-                <h:outputLabel>Kategori : </h:outputLabel> <h:inputText/>
+                <h:outputLabel>Başlık : </h:outputLabel>
+                <h:inputText value="#{articleMB.title}"/>
             </h:column>
             <h:column>
-                <h:outputLabel>İçerik : </h:outputLabel> <h:inputText/>
+                <h:outputLabel>İçerik : </h:outputLabel>
+                <h:inputText value="#{articleMB.content}"></h:inputText>
             </h:column>
             <h:column>
-                <h:outputLabel>İçerik : </h:outputLabel> <h:inputText/>
-            </h:column>
-            <h:column>
-                <h:commandButton value="Kaydet"/>
+                <h:commandButton value="Kaydet" action="#{articleMB.saveArticle}"/>
             </h:column>
         </h:panelGrid>
     </h:form>
