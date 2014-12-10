@@ -16,78 +16,78 @@ public class ArticleMB implements Serializable {
     @Autowired
     private ArticleService articleService;
 
-    private int id;
+    private Article article;
 
-    private String author;
+    private String buttonAction;
 
-    private String content;
+    private boolean editable;
 
-    private String title;
-
-    private String category;
+    public ArticleMB() { // Bean ilk oluşturulduğunda bir Article nesnesine ihtiyaç var kayıt yapa bilmek için
+        if (article == null)//Yeni Kayıt
+        {
+            article = new Article();
+            this.setButtonAction("Kaydet");
+            this.setEditable(false);
+        } else {
+            this.setButtonAction("Güncelle");
+            this.setEditable(true);
+        }
+    }
 
     public List<Article> getArticleList() {
         return articleService.articleList();
     }
 
     public String saveArticle() {
-
-        Article article = new Article();
-        article.setTitle(title);
-        article.setAuthor(author);
-        article.setContent(content);
-        article.setCategory(category);
         articleService.addArticle(article);
-
-        title = null;
-        author = null;
-        content = null;
-        category = null;
-
+        article = new Article();
         return null;
-
     }
 
-
-    /*get set*/
-
-    public int getId() {
-        return id;
+    public String deleteArticle(Article article) {
+        articleService.deleteArticle(article);
+        this.setButtonAction("Kaydet");
+        this.setEditable(false);
+        article = new Article();
+        return null;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String editArticle() {
+        articleService.updateArtcile(article);
+        article = new Article();
+        return null;
     }
 
-    public String getAuthor() {
-        return author;
+    public String editPageArticle(Article article) {
+        this.article = article;
+        this.setButtonAction("Güncelle");
+        this.setEditable(true);
+        return null;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public Article getArticle() {
+        return article;
     }
 
-    public String getContent() {
-        return content;
+    public void setArticle(Article article) {
+        this.article = article;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**/
+
+    public String getButtonAction() {
+        return buttonAction;
     }
 
-    public String getTitle() {
-        return title;
+    public void setButtonAction(String buttonAction) {
+        this.buttonAction = buttonAction;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public boolean isEditable() {
+        return editable;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setEditable(boolean editable) {
+        this.editable = editable;
     }
 }

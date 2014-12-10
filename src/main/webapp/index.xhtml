@@ -3,48 +3,98 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<style type="text/css">
+    .employeeTable {
+        border-collapse: collapse;
+        border: 1px solid #000000;
+    }
+
+    .employeeTableHeader {
+        text-align: center;
+        background: none repeat scroll 0 0 #B5B5B5;
+        border-bottom: 1px solid #000000;
+        padding: 2px;
+    }
+
+    .employeeTableOddRow {
+        text-align: center;
+        background: none repeat scroll 0 0 #FFFFFFF;
+    }
+
+    .employeeTableEvenRow {
+        text-align: center;
+        background: none repeat scroll 0 0 #D3D3D3;
+    }
+</style>
 <f:view>
 
     <h:form>
         <h:panelGrid columns="1">
             <h:column>
                 <h:outputLabel>Yazar : </h:outputLabel>
-                <h:inputText value="#{articleMB.author}"></h:inputText>
+                <h:inputText value="#{articleMB.article.author}"></h:inputText>
             </h:column>
             <h:column>
                 <h:outputLabel>Kategori : </h:outputLabel>
-                <h:inputText value="#{articleMB.category}"></h:inputText>
+                <h:inputText value="#{articleMB.article.category}"></h:inputText>
             </h:column>
             <h:column>
                 <h:outputLabel>Başlık : </h:outputLabel>
-                <h:inputText value="#{articleMB.title}"/>
+                <h:inputText value="#{articleMB.article.title}"/>
             </h:column>
             <h:column>
                 <h:outputLabel>İçerik : </h:outputLabel>
-                <h:inputText value="#{articleMB.content}"></h:inputText>
+                <h:inputText value="#{articleMB.article.content}"></h:inputText>
             </h:column>
             <h:column>
-                <h:commandButton value="Kaydet" action="#{articleMB.saveArticle}"/>
+                <c:if test=''>
+                </c:if>
+
+                <c:choose> <!--if else-->
+                    <c:when test="#{articleMB.isEditable()}">
+                        <h:commandButton value="#{articleMB.buttonAction}" action="#{articleMB.editArticle}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <h:commandButton value="#{articleMB.buttonAction}" action="#{articleMB.saveArticle}"/>
+                    </c:otherwise>
+                </c:choose>
+
+
             </h:column>
         </h:panelGrid>
     </h:form>
-
-    <h:dataTable value="#{articleMB.articleList}" var="article">
-        <h:column>
-            <f:facet name="header">Author</f:facet>
-            #{article.author}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Title</f:facet>
-            #{article.title}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Content</f:facet>
-            #{article.content}
-        </h:column>
-    </h:dataTable>
-
+    <h:form>
+        <h:dataTable
+                value="#{articleMB.articleList}"
+                var="article"
+                rowClasses="employeeTableEvenRow,employeeTableOddRow"
+                headerClass="employeeTableHeader">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{article.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Author</f:facet>
+                #{article.author}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                #{article.title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Content</f:facet>
+                #{article.content}
+            </h:column>
+            <h:column>
+                <h:commandButton value="Sil" action="#{articleMB.deleteArticle(article)}" style="width: 75px"/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="Güncelle" action="#{articleMB.editPageArticle(article)}" style="width: 75px"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
 </f:view>
 
 </html>
